@@ -1,4 +1,4 @@
-## main pipeline controller
+## main pipeline control script
 
 print("PROCESS: START")
 
