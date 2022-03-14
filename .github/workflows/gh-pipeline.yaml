@@ -27,11 +27,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: docker://nathaneastwood/poorman
+        with:
+          entrypoint: ["sh", "-c"]
       - name: install sys libs
         run: |
           apt-get update && apt-get install libcurl4-openssl-dev libssl-dev -qq
-      - name: "Run R"
-        run: |
-            R -e 'install.packages("googlesheets4", lib = "/usr/local/lib/R/site-library")'
-            r R/00-main.R
-            # artifacts:
+      # - name: "Run R"
+      #   run: |
+      #       R -e 'install.packages("googlesheets4", lib = "/usr/local/lib/R/site-library")'
+      #       r R/00-main.R
+      #       # artifacts:
