@@ -31,8 +31,8 @@ jobs:
       - name: install sys libs
         run: |
           apt-get update && apt-get install libcurl4-openssl-dev libssl-dev -qq
-      # - name: "Run R"
-      #   run: |
-      #       R -e 'install.packages("googlesheets4", lib = "/usr/local/lib/R/site-library")'
-      #       r R/00-main.R
-      #       # artifacts:
+      - name: "Run R"
+        run: |
+            R -e 'install.packages("googlesheets4", lib = "/usr/local/lib/R/site-library")'
+            r R/00-main.R
+            # artifacts:
