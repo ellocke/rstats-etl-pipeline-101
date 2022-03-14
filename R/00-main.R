@@ -3,9 +3,9 @@
 print("PROCESS: START")
 
 # Authenticate
-source("R/01-auth.R")
+source("R/10-auth.R")
 
 # Process Data
-source("R/02-process-data.R")
+source("R/20-process-data.R")
 
 print("PROCESS: END")
