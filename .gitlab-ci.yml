@@ -1,0 +1,18 @@
+# image: rocker/tidyverse
+image: nathaneastwood/poorman # Docker image with the R {poorman} package
+# cf. https://github.com/nathaneastwood/poorman
+
+stages:
+  - output
+
+exportData:
+  stage: output
+  rules:
+    - changes:
+      - R/*.R
+  before_script:
+    - apt-get update && apt-get install libcurl4-openssl-dev libssl-dev -qq
+  script:
+    - echo "Running R Pipe"
+    - R -e 'install.packages("googlesheets4", lib = "/usr/local/lib/R/site-library")'
+    - r R/00-main.R
