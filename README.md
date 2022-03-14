@@ -1,4 +1,4 @@
-[![pipeline status](https://gitlab.com/fubits/rstats-poorman-spreadsheets-etl-101/badges/main/pipeline.svg)](https://gitlab.com/fubits/rstats-poorman-spreadsheets-etl-101/-/commits/main)
+![example workflow](https://github.com/ellocke/rstats-etl-pipeline-101/actions/workflows/gh-pipeline.yaml/badge.svg)
 
 # How To: Minimal Data Pipeline with R & Google Spreadsheets ({poorman} fork)
 
