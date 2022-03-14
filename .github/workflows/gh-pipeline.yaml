@@ -2,7 +2,7 @@ name: minimal pipeline with R, Google Spreadsheets, and Poorman
 
 # on:
 #   schedule:
-#     - cron: '0 2 */3 * *'
+#     - cron: '30 9-17 * * *' # TBC: 9am to 5pm: run every hour at 30 past the hour
 
 # Controls when the workflow will run
 on:
