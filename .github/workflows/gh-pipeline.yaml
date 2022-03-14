@@ -26,10 +26,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - run:
-          name: "Run R"
-          image: nathaneastwood/poorman
-          script:
-            - apt-get update && apt-get install libcurl4-openssl-dev libssl-dev -qq
-            - r R/00-main.R
-          # artifacts:
+      - name: install sys libs
+        run: |
+          apt-get update && apt-get install libcurl4-openssl-dev libssl-dev -qq
+      - name: "Run R"
+        run: |
+            R -e 'install.packages("googlesheets4", lib = "/usr/local/lib/R/site-library")'
+            r R/00-main.R
+            # artifacts:
