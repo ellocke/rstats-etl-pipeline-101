@@ -19,6 +19,8 @@ jobs:
   pipeline-run:
     name: "Job: full pipeline run"
     runs-on: ubuntu-latest
+    container:
+      image: docker://nathaneastwood/poorman
     env:
       SHEETID: ${{ secrets.SHEETID }}
       TOKEN: ${{ secrets.TOKEN }}
@@ -26,9 +28,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: docker://nathaneastwood/poorman
-        with:
-          entrypoint: ["sh", "-c"]
       - name: install sys libs
         run: |
           apt-get update && apt-get install libcurl4-openssl-dev libssl-dev -qq
