@@ -1,0 +1,21 @@
+name: minimal pipeline with R, Google Spreadsheets, and Poorman
+
+# on:
+#   schedule:
+#     - cron: '0 2 */3 * *'
+
+jobs:
+  pipeline-run:
+    name: "Job: full pipeline run"
+    env:
+      SHEETID: ${{ secrets.SHEETID }}
+      TOKEN: ${{ secrets.TOKEN }}
+    steps:
+      - checkout
+      - run:
+          name: "Run R"
+          image: nathaneastwood/poorman
+          script:
+            - apt-get update && apt-get install libcurl4-openssl-dev libssl-dev -qq
+            - r R/00-main.R
+          # artifacts:
