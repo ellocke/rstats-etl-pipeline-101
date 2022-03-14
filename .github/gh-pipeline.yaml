@@ -20,13 +20,12 @@ jobs:
     name: "Job: full pipeline run"
     runs-on: nathaneastwood/poorman
     # Steps represent a sequence of tasks that will be executed as part of the job
+    env:
+      SHEETID: ${{ secrets.SHEETID }}
+      TOKEN: ${{ secrets.TOKEN }}
     steps:
-      env:
-        SHEETID: ${{ secrets.SHEETID }}
-        TOKEN: ${{ secrets.TOKEN }}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - checkout
       - run:
           name: "Run R"
           image: nathaneastwood/poorman
