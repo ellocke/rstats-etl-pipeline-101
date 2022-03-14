@@ -26,8 +26,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: docker://nathaneastwood/poorman
       - name: install sys libs
-        uses: docker://nathaneastwood/poorman
         run: |
           apt-get update && apt-get install libcurl4-openssl-dev libssl-dev -qq
       - name: "Run R"
