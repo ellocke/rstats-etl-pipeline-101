@@ -4,9 +4,25 @@ name: minimal pipeline with R, Google Spreadsheets, and Poorman
 #   schedule:
 #     - cron: '0 2 */3 * *'
 
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   pipeline-run:
     name: "Job: full pipeline run"
+    runs-on: nathaneastwood/poorman
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
     env:
       SHEETID: ${{ secrets.SHEETID }}
       TOKEN: ${{ secrets.TOKEN }}
